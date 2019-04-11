@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_075606) do
+ActiveRecord::Schema.define(version: 2019_04_11_082400) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2019_04_11_075606) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "region"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_regions_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
